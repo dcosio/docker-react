@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dccosio/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run dccosio/docker-react npm run test -- --coverage
